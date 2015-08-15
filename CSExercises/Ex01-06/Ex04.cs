@@ -10,7 +10,11 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
-            
+            Console.WriteLine("Please input the number:");
+            string numo = Console.ReadLine();
+            double num = Convert.ToDouble(numo);
+            double result = Math.Sqrt(num);
+            Console.WriteLine("The square of " + num + " is {0}", result);
         }
     }
 }
