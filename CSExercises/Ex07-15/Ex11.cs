@@ -10,7 +10,7 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Please input the number:");
+            Console.WriteLine("Please input the distance:");
             double Distance = Convert.ToDouble(Console.ReadLine());
             double MinCharge = 2.4;
             double result = MinCharge + Distance * 0.4;
