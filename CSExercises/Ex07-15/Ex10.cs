@@ -18,7 +18,7 @@ namespace CSExercises
             Double x2 = Convert.ToDouble(Console.ReadLine());
             Double y2 = Convert.ToDouble(Console.ReadLine());
             Double Distance = Math.Sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
-            Console.WriteLine("The distance is: (0)", Distance);
+            Console.WriteLine("The distance is: {0}", Distance);
         }
     }
 }
