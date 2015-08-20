@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bus1
+namespace CSExercises.Business_Cases
 {
     class Program1
     {
@@ -123,7 +123,7 @@ namespace bus1
                 for (int j = 0; j < 2; j++)
                     result = result + res[i, j];
             }
-            result=result+"only."
+            result = result + "only.";
             return result;
         }
     }
