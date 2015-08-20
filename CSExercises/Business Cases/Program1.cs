@@ -123,6 +123,7 @@ namespace bus1
                 for (int j = 0; j < 2; j++)
                     result = result + res[i, j];
             }
+            result=result+"only."
             return result;
         }
     }
