@@ -10,6 +10,7 @@ namespace CSExercises.extra
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Please input the number of player:");
             int NumberOfPlayer = Convert.ToInt32(Console.ReadLine());
             int[] player = new int[NumberOfPlayer];
             bool check = false;
