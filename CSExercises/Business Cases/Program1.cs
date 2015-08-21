@@ -45,6 +45,7 @@ namespace CSExercises.Business_Cases
             double[,] cam = new double[6, 2] { { 1000, 0 }, { 100, 0 }, { 10, 0 }, { 1, 0 }, { 0.1, 0 }, { 0.01, 0 } };
             string[,] res = new string[6, 2];
             //res = null;
+
             //caculate the number for 1000,100,10,1,0.1,0.01
             for (int i = 0; i < 6; i++)
             {
@@ -55,6 +56,8 @@ namespace CSExercises.Business_Cases
                     num = Math.Round(num, 2);
                 }
             }
+
+            //assign words to each num
             for (int i = 0; i < 6; i++)
             {
                 int temp = Convert.ToInt32(Math.Round(cam[i, 1]));
@@ -92,22 +95,7 @@ namespace CSExercises.Business_Cases
                         case 9: res[i, 1] = "Ninety"; break;
                     }
                 }
-                //
-                /*while ((i != 2) && (i != 4))
-                {
-                    switch (temp)
-                    {
-                        case 1: res[i, 1] = "One"; break;
-                        case 2: res[i, 1] = "Two"; break;
-                        case 3: res[i, 1] = "Three"; break;
-                        case 4: res[i, 1] = "Four"; break;
-                        case 5: res[i, 1] = "Five"; break;
-                        case 6: res[i, 1] = "Six"; break;
-                        case 7: res[i, 1] = "Seven"; break;
-                        case 8: res[i, 1] = "Eight"; break;
-                        case 9: res[i, 1] = "Nine"; break;
-                    }
-                }*/
+               
                 switch (i)
                 {
                     case 0: res[i, 0] = "Thousand"; break;
@@ -121,10 +109,13 @@ namespace CSExercises.Business_Cases
             }
             for (int i = 0; i < 6; i++)
             {
-                if (i == 2 && cam[3, 1] != 0)
+                if (i == 2 && cam[3, 1] != 0 && cam[1, 1] != 0)//if baiwei !=0 and
                     result = result + "And ";
                 if (i == 4 && (cam[4, 1] != 0 || cam[5, 1] != 0))
-                    result = result + "And Cents ";
+                    if(cam[0,1]==0&&cam[1,1]==0&&cam[2,1]==0&&cam[3,1]==0)
+                        result = result + "Cents ";
+                    else
+                        result = result + "And Cents ";
                 for (int j = 1; j >= 0; j--)
                     if (cam[i, 1] != 0)
                     {
@@ -134,7 +125,10 @@ namespace CSExercises.Business_Cases
                     }
 
             }
-            result = "Dollar " + result + "only.";
+            if (cam[0, 1] == 0 && cam[1, 1] == 0 && cam[2, 1] == 0 && cam[3, 1] == 0)
+                result=result + "only.";
+            else
+                result = "Dollar " + result + "only.";
             return result;
         }
     }
