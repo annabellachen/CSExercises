@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSExercises.Business_Cases
 {
+
     class Program1
     {
         static void Main(string[] args)
@@ -113,20 +114,29 @@ namespace CSExercises.Business_Cases
                     case 1: res[i, 0] = "Hundred"; break;//don't forget "and" after hundred or thousand
                     case 2: res[i, 0] = ""; break;
                     case 3: res[i, 0] = ""; break;
-                    case 4: res[i, 0] = "Cents"; break;//before 0.1
+                    case 4: res[i, 0] = ""; break;//before 0.1
                     case 5: res[i, 0] = ""; break;
 
                 }
             }
             for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 2; j++)
-                    result = result + res[i, j];
+                if (i == 2 && cam[3, 1] != 0)
+                    result = result + "And ";
+                if (i == 4 && (cam[4, 1] != 0 || cam[5, 1] != 0))
+                    result = result + "And Cents ";
+                for (int j = 1; j >= 0; j--)
+                    if (cam[i, 1] != 0)
+                    {
+                        result = result + res[i, j] + ' ';
+
+
+                    }
+
             }
-            result = result + "only.";
+            result = "Dollar " + result + "only.";
             return result;
         }
     }
 
 }
-
