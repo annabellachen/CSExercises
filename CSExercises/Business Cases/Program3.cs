@@ -30,12 +30,30 @@ namespace CSExercises.Business_Cases
             byte[] asciiBytes = Encoding.ASCII.GetBytes(word);
             for (int i = 0; i < word.Length; i++)
             {
-                asciiBytes[i]++;//add ascii value
-               
-                sub[i]=(char)(asciiBytes[i]);//convert to char
-                //word.Replace(word.Substring(i, 1), Convert.ToString(sub[i]));
-                word=word.Remove(i, 1);
-                word=word.Insert(i, Convert.ToString(sub[i]));
+                if (word[i] != 'Z' && word[i] != '9'&&word[i] != 'z')
+                {
+                    asciiBytes[i]++;//add ascii value
+                    sub[i] = (char)(asciiBytes[i]);//convert to char
+                    //word.Replace(word.Substring(i, 1), Convert.ToString(sub[i]));
+                    word = word.Remove(i, 1);
+                    word = word.Insert(i, Convert.ToString(sub[i]));
+                }
+                else if (word[i] == 'Z')
+                {
+                    word = word.Remove(i, 1);
+                    word = word.Insert(i, "A");
+                }
+                else if (word[i] == 'z')
+                {
+                    word = word.Remove(i, 1);
+                    word = word.Insert(i, "a");
+                }
+                else if (word[i] == '9')
+                {
+                    word = word.Remove(i, 1);
+                    word = word.Insert(i, "0");
+
+                }
             }
             
 
